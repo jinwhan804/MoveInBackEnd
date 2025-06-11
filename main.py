@@ -17,11 +17,7 @@ async def lifespan(app: FastAPI):
     # 애플리케이션 종료될 때 실행되는 코드
     print("애플리케이션 종료")
 
-
 app = FastAPI(lifespan=lifespan)
-
-app = FastAPI()
-
 
 @app.get("/")
 async def root():

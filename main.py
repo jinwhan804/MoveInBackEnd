@@ -32,7 +32,7 @@ async def root():
 app.add_middleware(
     # CORS 설정
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"], # 허용할 도메인
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://moveinfront-koo.s3-website.ap-northeast-2.amazonaws.com"], # 허용할 도메인
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"], # 모든 헤더 허용

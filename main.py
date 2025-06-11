@@ -2,12 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from contextlib import asynccontextmanager
+from database.connection import conn
 from admin import create_admin_user
 from routes.users import user_router
-from database.connection import conn
 from routes.MoveInInfo import moveininfo_router
-from routes.users import user_router
-from database.connection import conn
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

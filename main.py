@@ -12,6 +12,7 @@ async def lifespan(app: FastAPI):
     # 애플리케이션 시작될 때 실행되는 코드
     print("애플리케이션 시작")
     conn()
+    create_admin_user()
 
     yield
     # 애플리케이션 종료될 때 실행되는 코드
@@ -38,6 +39,5 @@ app.include_router(moveininfo_router, prefix="/movein")
 
 # import 될 때 실행되어서 2번 실행되는 문제를 방지하기 위해 명시적으로 import 할 파일을 직접 실행할 때만 실행되도록 명시적으로 해주는 문법
 # 어떻게 실행 되냐에 따라서 __name__이 변경 된다는 것 ( 파이썬을 모듈화해서 직접적으로 호출할 때는 __name__이 __main__으로 바뀌고, import 될 때는 __name__이 모듈 이름으로 바뀜  )
-if __name__ == "__main__":
-    create_admin_user()
+if __name__ == "__main__":    
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
